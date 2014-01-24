@@ -5,7 +5,10 @@ var app = angular.module('urApiVlApp', ['ngCookies',
         'ngSanitize',
         'ngRoute'])
     .service('amplify',function(){
-        return amplify
+        return amplify; // For amplify JS
+    })
+    .service('moemnt',function(){
+        return moment; // For moemnt JS
     })
     .config(function ($routeProvider) {
         $routeProvider
