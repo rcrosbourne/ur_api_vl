@@ -6,6 +6,8 @@
             $scope.awesomeThings = [
                 'My Time Now'
               ];
+            var response = userService.firstRequest();
+            $scope.firstRequest = userService.firstRequest();
             $scope.login = function (username, password){
                 //TODO add userService login function
                 //TODO add login function from scope to view.

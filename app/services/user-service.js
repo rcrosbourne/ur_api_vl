@@ -34,8 +34,8 @@
         }
     ];
     app.service(
-        "userService",["$q",
-        function( $q ) {
+        "userService",["$http",
+        function( $http ) {
 
             function login(email, password){
                 var user = {};
@@ -46,6 +46,18 @@
                     }
                 }
                 return user;
+            }
+            function firstRequest(){
+                return $http({
+                    method: 'POST',
+                    url: 'http://localhost:3000/token',
+                    headers: {
+                        'X-Test': 'application/json'
+                    },
+                    params: {
+                        username:'rainaldo@email.com',
+                        password:'password'
+                    }});
             }
 
 
@@ -95,7 +107,8 @@
 
             // Return the public API.
             return({
-                login: login
+                login: login,
+                firstRequest: firstRequest
 //                getCategoryByID: getCategoryByID
             });
 
