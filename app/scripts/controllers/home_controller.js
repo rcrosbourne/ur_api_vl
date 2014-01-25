@@ -4,8 +4,15 @@
 (function(app){
     'use strict';
 //    var app = angular.module('urApiVlApp');
-    app.controller('HomeController', ['$scope','amplify',
-        function ($scope, amplify) {
+    app.controller('HomeController', ['$location','$scope','amplify',
+        function ($location, $scope, amplify) {
             $scope.loggedInUser = amplify.store("loggedInUser");
+            $scope.logout = function(){
+                //Remove saved user
+                //Redirect to login page
+                console.log("In Logout");
+                amplify.store("loggedInUser", null);
+                $location.path("/");
+            }
     }]);
 })(app);

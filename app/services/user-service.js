@@ -47,16 +47,17 @@
                 }
                 return user;
             }
-            function firstRequest(){
+            function firstRequest(username, password){
                 return $http({
                     method: 'POST',
                     url: 'http://localhost:3000/token',
                     headers: {
-                        'X-Test': 'application/json'
+
+                        'Content-Type': 'application/json'
                     },
                     params: {
-                        username:'rainaldo@email.com',
-                        password:'password'
+                        username: username,
+                        password: password
                     }});
             }
 
