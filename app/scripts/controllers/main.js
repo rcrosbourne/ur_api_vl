@@ -6,22 +6,22 @@
             $scope.awesomeThings = [
                 'My Time Now'
               ];
-            var response = userService.firstRequest();
+            //var response = userService.firstRequest();
 
             $scope.login = function (username, password){
                 //TODO add userService login function
                 //TODO add login function from scope to view.
                 console.log(username + ':' + password);
-                var firstRequest = userService.firstRequest(username, password);
-                firstRequest.then(successRequest, failureRequest);
-                function successRequest (response){
-                    console.log(response);
-                    $scope.response = response.data;
-                }
-                function failureRequest(response){
-                    console.log(response);
-                    $scope.response = response.data;
-                }
+//                var firstRequest = userService.firstRequest(username, password);
+//                firstRequest.then(successRequest, failureRequest);
+//                function successRequest (response){
+//                    console.log(response);
+//                    $scope.response = response.data;
+//                }
+//                function failureRequest(response){
+//                    console.log(response);
+//                    $scope.response = response.data;
+//                }
 //                var authenticated = userService.login(username, password);
 //                if (authenticated.id != null) {
 //                    console.log("User authenticated" + authenticated);
