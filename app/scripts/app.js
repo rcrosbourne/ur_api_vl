@@ -13,14 +13,9 @@ var app = angular.module('urApiVlApp', ['ngCookies',
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
-          templateUrl: 'views/main.html',
+          templateUrl: 'views/login.html',
           controller: 'MainCtrl'
-        })
-            .when('/login', {
-                templateUrl: 'views/login.html',
-                controller: 'MainCtrl'
-            })
-            .when('/home',{
+        })  .when('/home',{
                 templateUrl: 'views/home.html',
                 controller: "HomeController",
                 resolve: {
