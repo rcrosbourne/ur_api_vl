@@ -30,9 +30,9 @@ var app = angular.module('urApiVlApp', ['ngCookies',
 
 
 var checkRouting= function ($rootScope, $location, amplify) {
-    if (amplify.store("loggedInUser")) {
+    if (amplify.store("access_token")) {
 
-        console.log(amplify.store("loggedInUser").name)
+
         return true;
     } else {
         $location.path("/");

@@ -34,8 +34,8 @@
         }
     ];
     app.service(
-        "userService",["$http",
-        function( $http ) {
+        'userService',['$location', '$http', 'amplify',
+        function( $location, $http, amplify ) {
 
             function login(email, password){
                 var user = {};
@@ -60,56 +60,30 @@
                         password: password
                     }});
             }
+            function currentUser(){
+//                if(canSendRequest){
+                    return $http({
+                        method: 'GET',
+                        url: 'http://localhost:3000/users/current_user',
+                        headers: {
 
+                            'Authorization': 'Bearer ' + amplify.store("access_token").access_token
+                        }});
 
-//            // I get all of the categories.
-//            function getCategories() {
-//
-//                var deferred = $q.defer();
-//
-//                deferred.resolve( ng.copy( cache ) );
-//
-//                return( deferred.promise );
-//
-//            }
-//
-//
-//            // I get the category with the given ID.
-//            function getCategoryByID( id ) {
-//
-//                var deferred = $q.defer();
-//                var category = _.findWithProperty( cache, "id", id );
-//
-//                if ( category ) {
-//
-//                    deferred.resolve( ng.copy( category ) );
-//
-//                } else {
-//
-//                    deferred.reject();
-//
+//                }else{
+//                    //Redirect to login
+//                    $location.path('/');
 //                }
-//
-//                return( deferred.promise );
-//
-//            }
+            }
+            function canSendRequest(){
+                return amplify.store("access_token").access_token != null ? true : false;
 
+            }
 
-            // ---------------------------------------------- //
-            // ---------------------------------------------- //
-
-
-
-
-
-            // ---------------------------------------------- //
-            // ---------------------------------------------- //
-
-
-            // Return the public API.
             return({
                 login: login,
-                firstRequest: firstRequest
+                firstRequest: firstRequest,
+                currentUser: currentUser
 //                getCategoryByID: getCategoryByID
             });
 
