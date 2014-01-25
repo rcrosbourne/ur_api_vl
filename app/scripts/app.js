@@ -16,6 +16,10 @@ var app = angular.module('urApiVlApp', ['ngCookies',
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
         })
+            .when('/login', {
+                templateUrl: 'views/login.html',
+                controller: 'MainCtrl'
+            })
             .when('/home',{
                 templateUrl: 'views/home.html',
                 controller: "HomeController",
