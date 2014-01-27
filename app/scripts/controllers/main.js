@@ -14,8 +14,8 @@
                     console.log(response);
 
                     //store the request data in cache.
-                    amplify.store("access_token", response.data);
-                    $location.path("/home");
+                    amplify.store('access_token', response.data);
+                    $location.path('/home');
                 }
                 function failureRequest(response){
                     console.error(response);

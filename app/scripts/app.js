@@ -35,6 +35,7 @@ var checkRouting= function ($rootScope, $location, amplify) {
         return true;
     } else {
         $location.path("/");
+
         //return false;
 //        var defered = $q.defer();
 //        $http.post("/loadUserProfile", { userToken: "blah" })
